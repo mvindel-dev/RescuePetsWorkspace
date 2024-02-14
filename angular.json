@@ -3,5 +3,132 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "RescuePetsWebApp": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/rescue-pets-web-app",
+      "sourceRoot": "projects/rescue-pets-web-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/rescue-pets-web-app",
+            "index": "projects/rescue-pets-web-app/src/index.html",
+            "main": "projects/rescue-pets-web-app/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/rescue-pets-web-app/tsconfig.app.json",
+            "assets": [
+              "projects/rescue-pets-web-app/src/favicon.ico",
+              "projects/rescue-pets-web-app/src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "projects/rescue-pets-web-app/src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "RescuePetsWebApp:build:production"
+            },
+            "development": {
+              "browserTarget": "RescuePetsWebApp:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "RescuePetsWebApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/rescue-pets-web-app/tsconfig.spec.json",
+            "assets": [
+              "projects/rescue-pets-web-app/src/favicon.ico",
+              "projects/rescue-pets-web-app/src/assets"
+            ],
+            "styles": [
+              "projects/rescue-pets-web-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "RescuePetsCoreLib": {
+      "projectType": "library",
+      "root": "projects/rescue-pets-core-lib",
+      "sourceRoot": "projects/rescue-pets-core-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/rescue-pets-core-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/rescue-pets-core-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/rescue-pets-core-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/rescue-pets-core-lib/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
   }
 }
