@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
@@ -9,7 +10,6 @@ import { CatsComponent } from './components/animals/cats/cats.component';
 import { DogsComponent } from './components/animals/dogs/dogs.component';
 import { PetComponent } from './components/pet/pet.component';
 
-import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './pipes/safe.pipe';
@@ -69,4 +69,4 @@ const routes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
