@@ -1,28 +1,38 @@
 // cats.component.ts
 import { Component, OnInit } from '@angular/core';
-import { Animal } from 'RescuePetsCoreLib';
-import { AnimalsService } from 'RescuePetsCoreLib';
-import { PetService } from 'RescuePetsCoreLib';
+import { CollectionReference } from '@angular/fire/firestore';
+import { Animal } from 'src/app/models/animal/animal';
+import { AnimalsService } from 'src/app/services/Animals/animals.service';
+import { PetService } from 'src/app/services/Pets/pet.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-cats',
   templateUrl: './cats.component.html',
   styleUrls: ['./cats.component.css']
 })
-export class CatsComponent implements OnInit {
-  public cats: Animal[] | null = null;
+export class CatsComponent{
+  public cats!:Animal[];
+  isAdmin!:boolean;
+  isVolunteer!:boolean;
 
-  constructor(private _animals: AnimalsService, private _petService: PetService) {}
 
-  ngOnInit(): void {
-    this._animals.retrieveData();
-    this._animals.dataLoaded$().subscribe(() => {
-      this.getCats();
-    });
+  constructor(private _animals: AnimalsService, private _petService: PetService, private _authService:AuthService) {
+    this.loadRoles();
+
   }
 
-  getCats(): void {
-    this.cats = this._animals.getCats();
+  loadRoles(){
+    let userid = this._authService.currentUser?.uid;
+    if(userid && this._authService.checkIsLogged()){
+      this.isAdmin = this._authService.checkIsAdmin(userid);
+      this.isVolunteer = this._authService.checkIsVolunteer(userid);
+    }
+  }
+
+
+  getCats(){
+    return this._animals.getAnimals().filter(animal => animal.type === 'Cat');
   }
 
   selectCat(cat: Animal): void {

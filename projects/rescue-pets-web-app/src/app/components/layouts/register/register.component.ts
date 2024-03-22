@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'RescuePetsCoreLib';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -34,6 +34,6 @@ export class RegisterComponent {
   }
 
   register(formData: any){
-    this._authService.register(formData.userEmailControl, formData.userPasswordControl)
+    this._authService.register(formData.userNameControl, formData.userEmailControl, formData.userPasswordControl)
   }
 }

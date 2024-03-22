@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Shelter } from 'RescuePetsCoreLib';
-import { ShelterService } from 'RescuePetsCoreLib';
+import { Shelter } from 'src/app/models/shelter/shelter';
+import { ShelterService } from 'src/app/services/Shelter/shelter.service';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,16 @@ export class HomeComponent implements OnInit {
 
   public shelters: Shelter[] = [];
 
-  constructor(private _shelter: ShelterService) {}
+  constructor(private _shelter: ShelterService, private _authService:AuthService) {
+    console.log(_authService.isVerified);
+  }
 
   ngOnInit(): void {
-    this._shelter.getShelters().subscribe(shelters => {
-      this.shelters = shelters;
-    });
+    this._shelter.retrieveData();
+  }
+
+  getShelters(){
+    return this._shelter.getShelters();
   }
 
 }

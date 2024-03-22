@@ -27,8 +27,9 @@
       <div class="container mt-4">
         <div class="row">
           <div class="col-md-12 mb-4">
-            <h2>History</h2>
+            <h2><strong>{{selectedPet?.name?.toLocaleUpperCase()}}</strong></h2>
             <div *ngIf="selectedPet !== null">
+              <strong>History</strong>
               <p *ngFor="let history of selectedPet.biography">{{ history }}</p>
             </div>
           </div>
@@ -55,11 +56,12 @@
                   <li *ngFor="let observations of selectedPet?.observations">{{ observations }}</li>
                 </ol>
               </li>
-
-              <!-- Agrega más detalles según tus necesidades -->
             </ul>
           </div>
         </div>
+        <button class="btn btn-success m-2" [routerLink]="['../../timetable/', selectedPet?.name]" *ngIf="isAdmin || isVolunteer">Care for {{selectedPet?.name}}</button>
+        <button class="btn btn-light" style="border: 1px solid black" [routerLink]="['../../editAnimal/', selectedPet?.name]" *ngIf="isAdmin">Edit {{selectedPet?.name}}</button>
+        <button class="btn btn-danger m-2" *ngIf="selectedPet!==null && isAdmin" (click)="deleteAnimal(selectedPet)">Delete {{selectedPet.name}}</button>
       </div>
     </div>
   </div>

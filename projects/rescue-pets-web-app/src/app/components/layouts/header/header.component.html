@@ -1,8 +1,8 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
+    <div class="container-fluid" *ngFor="let shelter of getShelters()">
         <a class="navbar-brand d-flex align-items-center" [routerLink]="['/home']">
             <img src="assets/img/provaLogo.png" alt="Logo" width="90" height="70" class="d-inline-block align-top">
-            <h1 class="ms-2" *ngIf="shelters!==null">{{shelters[0].name}}</h1>
+            <h1 class="ms-2">{{shelter.name}}</h1>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,6 +19,15 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/dogs']" routerLinkActive="active" (click)="closeNavbar()">Dogs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" (click)="closeNavbar()" *ngIf="!loggedIn">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active" (click)="closeNavbar()" *ngIf="!loggedIn">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" (click)="closeNavbar(); logout()" *ngIf="loggedIn">Logout</a>
                 </li>
             </ul>
         </div>
