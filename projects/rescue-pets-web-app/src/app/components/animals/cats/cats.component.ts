@@ -1,10 +1,10 @@
 // cats.component.ts
-import { Component, OnInit } from '@angular/core';
-import { CollectionReference } from '@angular/fire/firestore';
-import { Animal } from 'src/app/models/animal/animal';
-import { AnimalsService } from 'src/app/services/Animals/animals.service';
-import { PetService } from 'src/app/services/Pets/pet.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { Component } from '@angular/core';
+import { Animal } from 'projects/rescue-pets-core-lib/src/lib/models/animal/animal';
+import { AnimalsService } from 'projects/rescue-pets-core-lib/src/lib/services/Animals/animals.service';
+import { PetService } from 'projects/rescue-pets-core-lib/src/lib/services/Pets/pet.service';
+import { AuthService } from 'projects/rescue-pets-core-lib/src/lib/services/auth.service';
+
 
 @Component({
   selector: 'app-cats',

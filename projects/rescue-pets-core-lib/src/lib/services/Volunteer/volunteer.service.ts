@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CollectionReference, Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { Animal } from 'src/app/models/animal/animal';
-import { ReserveAnimal } from 'src/app/models/reserve/reserve-animal';
 import { AuthService } from '../auth.service';
+import { Animal } from 'dist/rescue-pets-core-lib/lib/models/animal/animal';
+import { ReserveAnimal } from '../../models/reserve/reserve-animal';
 
 @Injectable({
   providedIn: 'root'

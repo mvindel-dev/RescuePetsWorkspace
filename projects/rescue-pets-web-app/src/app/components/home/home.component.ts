@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Shelter } from 'src/app/models/shelter/shelter';
-import { ShelterService } from 'src/app/services/Shelter/shelter.service';
-import { Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
+import { Shelter } from 'projects/rescue-pets-core-lib/src/lib/models/shelter/shelter';
+import { ShelterService } from 'projects/rescue-pets-core-lib/src/lib/services/Shelter/shelter.service';
+import { AuthService } from 'projects/rescue-pets-core-lib/src/lib/services/auth.service';
+
 
 @Component({
   selector: 'app-home',

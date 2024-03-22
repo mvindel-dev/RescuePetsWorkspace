@@ -4,9 +4,10 @@ import { Component } from '@angular/core';
 import { NavigationEnd } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { Animal } from 'projects/rescue-pets-core-lib/src/lib/models/animal/animal';
+import { AnimalsService } from 'projects/rescue-pets-core-lib/src/lib/services/Animals/animals.service';
 import { filter } from 'rxjs';
-import { Animal } from 'src/app/models/animal/animal';
-import { AnimalsService } from 'src/app/services/Animals/animals.service';
+
 
 @Component({
   selector: 'app-add-pet',

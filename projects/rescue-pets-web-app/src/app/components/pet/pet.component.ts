@@ -1,11 +1,12 @@
 // pet.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PetService } from 'src/app/services/Pets/pet.service';
-import { AnimalsService } from 'src/app/services/Animals/animals.service';
-import { Animal } from 'src/app/models/animal/animal';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { Animal } from 'projects/rescue-pets-core-lib/src/lib/models/animal/animal';
+import { AnimalsService } from 'projects/rescue-pets-core-lib/src/lib/services/Animals/animals.service';
+import { PetService } from 'projects/rescue-pets-core-lib/src/lib/services/Pets/pet.service';
+import { AuthService } from 'projects/rescue-pets-core-lib/src/lib/services/auth.service';
+
 
 @Component({
   selector: 'app-pet',

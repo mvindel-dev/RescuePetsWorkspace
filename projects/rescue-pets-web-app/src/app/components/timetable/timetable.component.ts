@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { Animal } from 'src/app/models/animal/animal';
-import { ReserveAnimal } from 'src/app/models/reserve/reserve-animal';
-import { AnimalsService } from 'src/app/services/Animals/animals.service';
-import { PetService } from 'src/app/services/Pets/pet.service';
-import { VolunteerService } from 'src/app/services/Volunteer/volunteer.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { Animal, AnimalsService, AuthService, PetService } from 'RescuePetsCoreLib';
+import { ReserveAnimal } from 'projects/rescue-pets-core-lib/src/lib/models/reserve/reserve-animal';
+import { VolunteerService } from 'projects/rescue-pets-core-lib/src/lib/services/Volunteer/volunteer.service';
+
 
 @Component({
   selector: 'app-timetable',

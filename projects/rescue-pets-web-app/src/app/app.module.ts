@@ -19,11 +19,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SafePipe } from './pipes/safe.pipe';
 
-import { environment } from 'src/environments/environment.development';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { authGuard } from './guards/auth.guard';
+import { authGuard } from 'projects/rescue-pets-core-lib/src/lib/guards/auth.guard';
+import { environment } from './environments/environment';
 
 
 

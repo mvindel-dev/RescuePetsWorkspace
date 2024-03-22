@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'projects/rescue-pets-core-lib/src/lib/services/auth.service';
 
 @Component({
   selector: 'app-register',
