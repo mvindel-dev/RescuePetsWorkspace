@@ -4,10 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { TimetablePage } from './timetable.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: TimetablePage
-  }
+  { path: ':name', component: TimetablePage },
+  { path: '', redirectTo: '/home', pathMatch:'full'}
 ];
 
 @NgModule({

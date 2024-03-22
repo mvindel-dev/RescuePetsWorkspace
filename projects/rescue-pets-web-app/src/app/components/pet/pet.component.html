@@ -1,16 +1,12 @@
-<!-- pet.component.html -->
 <div class="container-fluid">
   <div class="row">
-    <!-- Imagen a la izquierda -->
     <div class="col-lg-6 mb-4 mt-4">
       <div id="carouselExampleFade" class="carousel slide carousel-fade h-100">
         <div class="carousel-inner h-100">
           <div class="carousel-item active h-100">
             <img [src]="selectedPet.main_image" class="d-block w-100 h-100" alt="Pet Image" *ngIf="selectedPet !== null">
           </div>
-          <!-- Puedes agregar más imágenes según tus necesidades -->
         </div>
-        <!-- Controles del carrusel -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -22,7 +18,6 @@
       </div>
     </div>
 
-    <!-- Detalles a la derecha -->
     <div class="col-lg-6 mb-4">
       <div class="container mt-4">
         <div class="row">

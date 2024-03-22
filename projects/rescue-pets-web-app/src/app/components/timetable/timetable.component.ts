@@ -41,8 +41,6 @@ export class TimetableComponent implements OnInit{
   }
 
   updateHours() {
-    
-
     if (this.selectedButton === 'today') {
       this.selectedDate = this.today;
     } else if (this.selectedButton === 'tomorrow') {

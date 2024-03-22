@@ -8,6 +8,7 @@ import { TimetablePageRoutingModule } from './timetable-routing.module';
 
 import { TimetablePage } from './timetable.page';
 
+
 @NgModule({
   imports: [
     CommonModule,

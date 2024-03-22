@@ -4,10 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { PetPage } from './pet.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: PetPage
-  }
+  { path: ':name', component: PetPage },
+  { path: '', redirectTo: '/home', pathMatch:'full'}
 ];
 
 @NgModule({

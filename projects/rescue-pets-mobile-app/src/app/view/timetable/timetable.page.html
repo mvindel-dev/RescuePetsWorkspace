@@ -4,10 +4,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content class="container mt-5 mb-5">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">timetable</ion-title>
+      <ion-title><strong>{{selectedPet?.name?.toUpperCase()}} TIMETABLE</strong></ion-title>
     </ion-toolbar>
   </ion-header>
+  <div class="ion-padding">
+    <div class="row">
+      <div class="col">
+        <ion-button expand="block" [color]="selectedButton === 'today' ? 'primary' : 'light'" (click)="selectedButton = 'today'; updateHours()">{{today.toLocaleDateString()}}</ion-button>
+        <ion-button expand="block" [color]="selectedButton === 'tomorrow' ? 'primary' : 'light'" (click)="selectedButton = 'tomorrow'; updateHours()">{{tomorrow.toLocaleDateString()}}</ion-button>
+        <ion-button expand="block" [color]="selectedButton === 'pastTomorrow' ? 'primary' : 'light'" (click)="selectedButton = 'pastTomorrow'; updateHours()">{{pastTomorrow.toLocaleDateString()}}</ion-button>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <ion-list lines="none">
+          <ion-item *ngFor="let hora of getHoras()">
+            {{ hora.hora }} - {{ hora.hora + 1 }}
+            <ion-badge *ngIf="hora.reservado" color="danger">Reserved</ion-badge>
+            <ion-badge *ngIf="!hora.reservado" color="success">Available</ion-badge>
+            <ion-button *ngIf="!hora.reservado" color="primary" (click)="reserveHour(hora)">Reserve</ion-button>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
 </ion-content>
+
