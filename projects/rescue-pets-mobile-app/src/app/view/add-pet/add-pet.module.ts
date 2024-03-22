@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AboutPageRoutingModule } from './about-routing.module';
+import { AddPetPageRoutingModule } from './add-pet-routing.module';
 
-import { AboutPage } from './about.page';
+import { AddPetPage } from './add-pet.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AboutPageRoutingModule
+    AddPetPageRoutingModule
   ],
-  declarations: [AboutPage]
+  declarations: [AddPetPage]
 })
-export class AboutPageModule {}
+export class AddPetPageModule {}
