@@ -8,20 +8,24 @@ import { Observable } from 'rxjs';
 })
 export class ShelterService {
 
-  private _shelters: CollectionReference<Shelter>;
-  private _arrShelters$: Observable<Shelter[]>;
+  private _sheltersCollection: CollectionReference<Shelter>;
+  private _shelters: Shelter[] = [];
 
   constructor(private _firestore: Firestore) {
-    this._shelters = collection(this._firestore, 'shelter') as CollectionReference<Shelter>;
-    this._arrShelters$ = this.collectData();
+    this._sheltersCollection = collection(this._firestore, 'shelter') as CollectionReference<Shelter>;
+    this.retrieveData();
   }
 
-  collectData(): Observable<Shelter[]> {
-    return collectionData(this._shelters);
+  retrieveData(){
+    collectionData(this._sheltersCollection, {'idField': 'id'}).subscribe({
+      next: (shelter: Shelter[]) => {
+        this._shelters=shelter;
+      }
+    });
   }
   
   insertData(shelter: Shelter): void {
-    addDoc(this._shelters, shelter).then(
+    addDoc(this._sheltersCollection, shelter).then(
       (doc) => {
         console.log(doc);
       }
@@ -32,8 +36,8 @@ export class ShelterService {
     ).finally(() => {});
   }
 
-  getShelters(): Observable<Shelter[]> {
-    return this._arrShelters$;
+  getShelters():Shelter[]{
+    return this._shelters;
   }
 
 }

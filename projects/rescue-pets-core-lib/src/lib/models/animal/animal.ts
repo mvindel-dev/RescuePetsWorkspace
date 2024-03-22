@@ -1,9 +1,10 @@
 export interface Animal {
-  id?:string;
+  id:string;
+  animalId?:string;
   name:string;
   type:string;
   main_image:string;
-  carousel_imgs:string;
+  carousel_imgs:String[];
   biography:Array<string>;
   sex:string;
   birthdate:string;
