@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RescuePetsMobileApp';
-
-  public appPages = [
-    { title: 'Home', url: '/home', icon: 'home' },
-    { title: 'About', url: '/about', icon: 'person' }
-    
-  ];
 }

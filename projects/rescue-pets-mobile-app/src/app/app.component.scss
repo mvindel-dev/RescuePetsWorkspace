@@ -1,5 +1,3 @@
-
-
 ion-menu ion-content {
     --background: var(--ion-item-background, var(--ion-background-color, #fff));
   }
@@ -90,7 +88,7 @@ ion-menu ion-content {
     color: var(--ion-color-primary);
   }
   
-  ion-menu.ios ion-item ion-icon {
+  ion-menu.ios ion-item ion-icon{
     font-size: 24px;
     color: #73849a;
   }
@@ -124,6 +122,16 @@ ion-menu ion-content {
     
     &:nth-of-type(4){
       position: relative;
+    }
+  }
+
+  ion-item {
+    svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: middle;
     }
   }
   

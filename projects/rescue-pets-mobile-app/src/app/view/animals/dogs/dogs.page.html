@@ -1,13 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>dogs</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>DOGS</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">dogs</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-content class="container mt-3">
+  <ion-button class="ion-margin-top ion-margin-bottom" expand="block" color="success" *ngIf="isAdmin" [routerLink]="['/addAnimal']">Afegir gosset</ion-button>
+  <div class="ion-margin-top">
+    <div *ngFor="let dog of getDogs()">
+      <ion-card (click)="selectDog(dog)" [routerLink]="['/pet', dog.name]">
+        <ion-img [src]="dog.main_image" alt="Imagen"></ion-img>
+        <ion-card-header>
+          <ion-card-title class="ion-text-center">{{ dog.name }}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>
+
